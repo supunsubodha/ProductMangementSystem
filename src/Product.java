@@ -29,10 +29,29 @@ public class Product {
         }else{
             System.out.println("==== Parameterized Product ====");
         }
-        System.out.println("Product ID: " + this.productId);
-        System.out.println("Product Name: " + this.name);
-        System.out.println("Product Price: $" + this.price);
+        System.out.println("Product ID            : " + this.productId);
+        System.out.println("Product Name          : " + this.name);
+        System.out.println("Product Price         : $" + this.price);
         System.out.println("Product Stock Quantity: " + this.stockQuantity +"units");
-        System.out.println("Product Category: " + this.category);
+        System.out.println("Product Category      : " + this.category);
+    }
+
+    public void discount(){
+        this.price -= this.price * 0.1;
+        System.out.println("Default 10% of discount applied. New price: $"+price);
+    }
+
+    public void discount(double discountPercentage){
+        price -= price * (discountPercentage / 100);
+        System.out.println("Custom " + discountPercentage + "% discount applied. New price: $"+price);
+    }
+
+    public void discount(double discountPercentage, int minStock){
+        if(stockQuantity >= minStock){
+            price -= price * (discountPercentage / 100);
+            System.out.println("Stock ok. "+discountPercentage + "% discount applied. New price: $"+price);
+        }else{
+            System.out.println("Stock is too low for this discount.");
+        }
     }
 }
