@@ -23,5 +23,16 @@ public class Product {
         this.category = category;
     }
 
-
+    public void displayProduct(){
+        if (productId == 0){
+            System.out.println("==== Default Product ===");
+        }else{
+            System.out.println("==== Parameterized Product ====");
+        }
+        System.out.println("Product ID: " + this.productId);
+        System.out.println("Product Name: " + this.name);
+        System.out.println("Product Price: $" + this.price);
+        System.out.println("Product Stock Quantity: " + this.stockQuantity +"units");
+        System.out.println("Product Category: " + this.category);
+    }
 }
